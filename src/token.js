@@ -1,3 +1,7 @@
 window.onload = () => {
-  // TODO
+YaSendSuggestToken(
+   'https://oauth-master-class-swart.vercel.app', {
+      flag: true
+   }
+)
 };

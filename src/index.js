@@ -2,11 +2,11 @@ window.onload = () => {
   document.getElementById("button").onclick = () => {
     window.YaAuthSuggest.init(
       {
-        client_id: "c46f0c53093440c39f12eff95a9f2f93",
+        client_id: "e9653841daee476d84c008b23c9659a2",
         response_type: "token",
-        redirect_uri: "https://examplesite.com/suggest/token",
+        redirect_uri: "https://oauth-master-class-swart.vercel.app/token",
       },
-      "https://examplesite.com",
+      "https://oauth-master-class-swart.vercel.app",
       {
         view: "button",
         parentId: "buttonContainer",

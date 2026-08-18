@@ -1,5 +1,4 @@
 window.onload = () => {
-  document.getElementById("button").onclick = () => {
     window.YaAuthSuggest.init(
       {
         client_id: "e9653841daee476d84c008b23c9659a2",
@@ -20,5 +19,4 @@ window.onload = () => {
       .then(({ handler }) => handler())
       .then((data) => console.log("Сообщение с токеном", data))
       .catch((error) => console.log("Обработка ошибки", error));
-  };
 };

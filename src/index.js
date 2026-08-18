@@ -4,7 +4,7 @@ window.onload = () => {
       {
         client_id: "e9653841daee476d84c008b23c9659a2",
         response_type: "token",
-        redirect_uri: "https://oauth-master-class-swart.vercel.app/token",
+        redirect_uri: "https://oauth-master-class-swart.vercel.app/token.html",
       },
       "https://oauth-master-class-swart.vercel.app",
       {

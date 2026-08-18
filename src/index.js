@@ -7,15 +7,15 @@ window.onload = () => {
         redirect_uri: "https://oauth-master-class-swart.vercel.app/token.html",
       },
       "https://oauth-master-class-swart.vercel.app",
-      {
-        view: "button",
-        parentId: "buttonContainer",
-        buttonSize: "m",
-        buttonView: "main",
-        buttonTheme: "light",
-        buttonBorderRadius: "0",
-        buttonIcon: "ya",
-      }
+      // {
+      //   view: "button",
+      //   parentId: "buttonContainer",
+      //   buttonSize: "m",
+      //   buttonView: "main",
+      //   buttonTheme: "light",
+      //   buttonBorderRadius: "0",
+      //   buttonIcon: "ya",
+      // }
     )
       .then(({ handler }) => handler())
       .then((data) => console.log("Сообщение с токеном", data))

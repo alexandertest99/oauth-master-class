@@ -1,5 +1,5 @@
 window.onload = () => {
-    window.YaAuthSuggest.init(
+    YaAuthSuggest.init(
       {
         client_id: "e9653841daee476d84c008b23c9659a2",
         response_type: "token",

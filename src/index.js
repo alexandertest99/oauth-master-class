@@ -15,10 +15,12 @@ window.onload = () => {
         buttonTheme: "light",
         buttonBorderRadius: "0",
         buttonIcon: "ya",
-      }
+      },
     )
       .then(({ handler }) => handler())
-      .then((data) => console.log("Сообщение с токеном", data))
+      .then((data) => {
+        console.log(data.access_token);
+      })
       .catch((error) => console.log("Обработка ошибки", error));
   };
 };

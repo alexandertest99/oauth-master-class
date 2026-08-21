@@ -19,7 +19,13 @@ window.onload = () => {
     )
       .then(({ handler }) => handler())
       .then((data) => {
-        console.log(data.access_token);
+        const token = data.access_token;
+        let response = fetch("https://login.yandex.ru/info?format=json", {
+          headers: {
+            Authentication: token,
+          },
+        });
+        console.log(response);
       })
       .catch((error) => console.log("Обработка ошибки", error));
   };

@@ -2,7 +2,7 @@ const buttonIn = document.getElementById("button-in");
 const buttonOut = document.getElementById("button-out");
 const logs = document.getElementById("logs");
 
-if(!localStorage.getItem("auth") {
+if(!localStorage.getItem("auth")) {
   buttonIn.style.display = "block";
   buttonOut.style.display = "none";
 }
@@ -29,10 +29,6 @@ window.onload = () => {
       .then(({ handler }) => handler())
       .then(async (data) => {
         const token = data.access_token;
-        let response = fetch(
-          `https://login.yandex.ru/info?format=json&oauth_token=${token}`,
-        );
-        console.log((await response).json());
         let response = fetch(
   `https://login.yandex.ru/info?format=json&oauth_token=${token}`,
         ).then(async (data) => {

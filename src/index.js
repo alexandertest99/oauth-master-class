@@ -6,7 +6,10 @@ if (!localStorage.getItem("auth")) {
   buttonIn.style.display = "block";
   buttonOut.style.display = "none";
 } else {
-  auth();
+  const authData = localStorage.getItem("auth");
+  saveAuth(authData);
+  showAuth(authData);
+  insertLog(authData);
   buttonIn.style.display = "none";
   buttonOut.style.display = "block";
 }

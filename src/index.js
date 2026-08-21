@@ -2,44 +2,17 @@ const buttonIn = document.getElementById("button-in");
 const buttonOut = document.getElementById("button-out");
 const logs = document.getElementById("logs");
 
-if(!localStorage.getItem("auth")) {
+if (!localStorage.getItem("auth")) {
   buttonIn.style.display = "block";
   buttonOut.style.display = "none";
+} else {
+  auth();
+  buttonIn.style.display = "none";
+  buttonOut.style.display = "block";
 }
 
 window.onload = () => {
-  buttonIn.onclick = () => {
-    window.YaAuthSuggest.init(
-      {
-        client_id: "e9653841daee476d84c008b23c9659a2",
-        response_type: "token",
-        redirect_uri: "https://oauth-master-class-swart.vercel.app/token.html",
-      },
-      "https://oauth-master-class-swart.vercel.app",
-      {
-        view: "button",
-        parentId: "buttonContainer",
-        buttonSize: "m",
-        buttonView: "main",
-        buttonTheme: "light",
-        buttonBorderRadius: "0",
-        buttonIcon: "ya",
-      },
-    )
-      .then(({ handler }) => handler())
-      .then(async (data) => {
-        const token = data.access_token;
-        let response = fetch(
-  `https://login.yandex.ru/info?format=json&oauth_token=${token}`,
-        ).then(async (data) => {
-          const authData = await data.json();
-          saveAuth(authData);
-          showAuth(authData);
-          insertLog(authData);
-        });
-      })
-      .catch((error) => console.log("Обработка ошибки", error));
-  };
+  buttonIn.onclick = auth;
 };
 
 function saveAuth(data) {
@@ -77,6 +50,39 @@ function insertLog(log) {
     "beforeEnd",
     `<p class="log">${JSON.stringify(log)}</p>`,
   );
+}
+
+function auth() {
+  window.YaAuthSuggest.init(
+    {
+      client_id: "e9653841daee476d84c008b23c9659a2",
+      response_type: "token",
+      redirect_uri: "https://oauth-master-class-swart.vercel.app/token.html",
+    },
+    "https://oauth-master-class-swart.vercel.app",
+    {
+      view: "button",
+      parentId: "buttonContainer",
+      buttonSize: "m",
+      buttonView: "main",
+      buttonTheme: "light",
+      buttonBorderRadius: "0",
+      buttonIcon: "ya",
+    },
+  )
+    .then(({ handler }) => handler())
+    .then(async (data) => {
+      const token = data.access_token;
+      let response = fetch(
+        `https://login.yandex.ru/info?format=json&oauth_token=${token}`,
+      ).then(async (data) => {
+        const authData = await data.json();
+        saveAuth(authData);
+        showAuth(authData);
+        insertLog(authData);
+      });
+    })
+    .catch((error) => console.log("Обработка ошибки", error));
 }
 
 buttonOut.onclick = () => {

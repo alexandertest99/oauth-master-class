@@ -72,3 +72,7 @@ body {
 #logs {
   margin-top: 100px;
 }
+
+.log {
+  overflow-wrap: break-word;
+}

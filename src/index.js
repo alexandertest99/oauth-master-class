@@ -86,6 +86,7 @@ function auth() {
       });
     })
     .catch((error) => console.log("Обработка ошибки", error));
+    location.reload();
 }
 
 buttonOut.onclick = () => {

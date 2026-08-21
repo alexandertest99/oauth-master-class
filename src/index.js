@@ -81,12 +81,10 @@ function auth() {
       ).then(async (data) => {
         const authData = await data.json();
         saveAuth(authData);
-        showAuth(authData);
-        insertLog(authData);
+        location.reload();
       });
     })
     .catch((error) => console.log("Обработка ошибки", error));
-    location.reload();
 }
 
 buttonOut.onclick = () => {

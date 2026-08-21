@@ -18,12 +18,12 @@ window.onload = () => {
       },
     )
       .then(({ handler }) => handler())
-      .then((data) => {
+      .then(async (data) => {
         const token = data.access_token;
         let response = fetch(
           `https://login.yandex.ru/info?format=json&oauth_token=${token}`,
         );
-        console.log(response);
+        console.log((await response).json());
       })
       .catch((error) => console.log("Обработка ошибки", error));
   };

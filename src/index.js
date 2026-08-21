@@ -6,7 +6,7 @@ if (!localStorage.getItem("auth")) {
   buttonIn.style.display = "block";
   buttonOut.style.display = "none";
 } else {
-  const authData = localStorage.getItem("auth");
+  const authData = JSON.parse(localStorage.getItem("auth"));
   saveAuth(authData);
   showAuth(authData);
   insertLog(authData);
